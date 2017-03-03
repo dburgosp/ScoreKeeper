@@ -13,11 +13,12 @@
         android:src="@drawable/background4" />
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:alpha="0.5"
-        android:background="@color/colorPrimary" />
+        android:background="@drawable/background_layers" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,14 +43,16 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/team_a_title_layers"
                     android:gravity="right"
-                    android:paddingBottom="8dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
+                    android:padding="8dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="4"
+                    android:shadowDy="4"
+                    android:shadowRadius="5"
                     android:text="Team A"
                     android:textColor="@android:color/white"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -57,8 +60,12 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="#ffffff"
+                    android:background="@drawable/score_layers"
                     android:padding="16dp"
+                    android:shadowColor="@android:color/darker_gray"
+                    android:shadowDx="8"
+                    android:shadowDy="8"
+                    android:shadowRadius="5"
                     android:text="0"
                     android:textColor="@android:color/black"
                     android:textSize="48dp" />
@@ -73,14 +80,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    style="@style/cards"
-                    android:background="#ffff00"
+                    style="@style/teamACards"
+                    android:background="@drawable/yellow_card_layers"
                     android:text="0"
                     android:textColor="@android:color/black" />
 
                 <TextView
-                    style="@style/cards"
-                    android:background="#ff0000"
+                    style="@style/teamACards"
+                    android:background="@drawable/red_card_layers"
                     android:text="0"
                     android:textColor="@android:color/black" />
             </LinearLayout>
@@ -117,8 +124,12 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
-                    android:background="#ffffff"
+                    android:background="@drawable/score_layers"
                     android:padding="16dp"
+                    android:shadowColor="@android:color/darker_gray"
+                    android:shadowDx="8"
+                    android:shadowDy="8"
+                    android:shadowRadius="5"
                     android:text="0"
                     android:textColor="@android:color/black"
                     android:textSize="48dp" />
@@ -128,14 +139,16 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
-                    android:gravity="right"
-                    android:paddingBottom="8dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="8dp"
+                    android:background="@drawable/team_b_title_layers"
+                    android:gravity="left"
+                    android:padding="8dp"
+                    android:shadowColor="@android:color/black"
+                    android:shadowDx="4"
+                    android:shadowDy="4"
+                    android:shadowRadius="5"
                     android:text="Team B"
                     android:textColor="@android:color/white"
-                    android:textSize="24dp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
@@ -148,12 +161,12 @@
 
                 <TextView
                     style="@style/teamBCards"
-                    android:background="#ffff00"
+                    android:background="@drawable/yellow_card_layers"
                     android:text="0" />
 
                 <TextView
                     style="@style/teamBCards"
-                    android:background="#ff0000"
+                    android:background="@drawable/red_card_layers"
                     android:text="0" />
             </LinearLayout>
 
@@ -174,18 +187,19 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/reset_bar_layers"
         android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_height="wrap_content">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="28dp">
 
         <Button
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_margin="8dp"
-            android:onClick="resetScores"
-            android:text="Reset" />
+            android:text="Reset scores" />
 
     </RelativeLayout>
 
