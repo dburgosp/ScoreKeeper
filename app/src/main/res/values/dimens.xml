@@ -5,4 +5,16 @@
 
     <dimen name="min_layer_item_size">2dp</dimen>
     <dimen name="max_layer_item_size">4dp</dimen>
+
+    <dimen name="small_radius_1">2dp</dimen>
+    <dimen name="small_radius_2">3dp</dimen>
+    <dimen name="small_radius_3">4dp</dimen>
+
+    <dimen name="medium_radius_1">4dp</dimen>
+    <dimen name="medium_radius_2">6dp</dimen>
+    <dimen name="medium_radius_3">8dp</dimen>
+
+    <dimen name="big_radius_1">6dp</dimen>
+    <dimen name="big_radius_2">8dp</dimen>
+    <dimen name="big_radius_3">10dp</dimen>
 </resources>

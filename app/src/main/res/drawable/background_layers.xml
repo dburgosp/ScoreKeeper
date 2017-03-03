@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/colorDarkBlue" />
-            <corners android:radius="10dp" />
+            <corners android:radius="@dimen/big_radius_3" />
         </shape>
     </item>
     <item
@@ -11,7 +11,7 @@
         android:right="@dimen/max_layer_item_size">
         <shape android:shape="rectangle">
             <solid android:color="@color/colorLightBlue" />
-            <corners android:radius="8dp" />
+            <corners android:radius="@dimen/big_radius_2" />
         </shape>
     </item>
     <item
@@ -21,7 +21,7 @@
         android:right="@dimen/max_layer_item_size">
         <shape android:shape="rectangle">
             <solid android:color="@color/colorPrimaryDark" />
-            <corners android:radius="6dp" />
+            <corners android:radius="@dimen/big_radius_1" />
         </shape>
     </item>
 </layer-list>
