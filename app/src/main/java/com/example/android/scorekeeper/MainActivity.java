@@ -21,12 +21,21 @@ public class MainActivity extends AppCompatActivity {
     int viewIdRedCardsTeamA = R.id.team_a_red_cards;
     int viewIdRedCardsTeamB = R.id.team_b_red_cards;
 
+    Button goalTeamBButton;
+    Button resetButton;
+    Button goalTeamAButton;
+    Button yellowCardTeamAButton;
+    Button yellowCardTeamBButton;
+    Button redCardTeamAButton;
+    Button redCardTeamBButton;
+
     int goalsTeamA = 0;
     int goalsTeamB = 0;
     int yellowCardsTeamA = 0;
     int yellowCardsTeamB = 0;
     int redCardsTeamA = 0;
     int redCardsTeamB = 0;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -37,11 +46,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         resetScores();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        goalTeamBButton = (Button) findViewById(R.id.goalTeamBButton);
+        resetButton = (Button) findViewById(R.id.resetButton);
+        goalTeamAButton = (Button) findViewById(R.id.goalTeamAButton);
+        yellowCardTeamAButton = (Button) findViewById(R.id.yellowCardTeamAButton);
+        yellowCardTeamBButton = (Button) findViewById(R.id.yellowCardTeamBButton);
+        redCardTeamAButton = (Button) findViewById(R.id.redCardTeamAButton);
+        redCardTeamBButton = (Button) findViewById(R.id.redCardTeamBButton);
     }
 
     @Override
@@ -49,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        Button resetButton = (Button) findViewById(R.id.resetButton);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button goalTeamAButton = (Button) findViewById(R.id.goalTeamAButton);
         goalTeamAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button goalTeamBButton = (Button) findViewById(R.id.goalTeamBButton);
         goalTeamBButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button yellowCardTeamAButton = (Button) findViewById(R.id.yellowCardTeamAButton);
         yellowCardTeamAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button yellowCardTeamBButton = (Button) findViewById(R.id.yellowCardTeamBButton);
         yellowCardTeamBButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button redCardTeamAButton = (Button) findViewById(R.id.redCardTeamAButton);
         redCardTeamAButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button redCardTeamBButton = (Button) findViewById(R.id.redCardTeamBButton);
         redCardTeamBButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
