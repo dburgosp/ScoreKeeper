@@ -177,4 +177,34 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("goalsTeamA", goalsTeamA);
+        outState.putInt("goalsTeamB", goalsTeamB);
+        outState.putInt("yellowCardsTeamA", yellowCardsTeamA);
+        outState.putInt("yellowCardsTeamB", yellowCardsTeamB);
+        outState.putInt("redCardsTeamA", redCardsTeamA);
+        outState.putInt("redCardsTeamB", redCardsTeamB);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        goalsTeamA = savedInstanceState.getInt("goalsTeamA");
+        goalsTeamB = savedInstanceState.getInt("goalsTeamB");
+        yellowCardsTeamA = savedInstanceState.getInt("yellowCardsTeamA");
+        yellowCardsTeamB = savedInstanceState.getInt("yellowCardsTeamB");
+        redCardsTeamA = savedInstanceState.getInt("redCardsTeamA");
+        redCardsTeamB = savedInstanceState.getInt("redCardsTeamB");
+
+        displayScore(goalsTeamA, viewIdGoalsTeamA);
+        displayScore(goalsTeamB, viewIdGoalsTeamB);
+        displayScore(yellowCardsTeamA, viewIdYellowCardsTeamA);
+        displayScore(yellowCardsTeamB, viewIdYellowCardsTeamB);
+        displayScore(redCardsTeamA, viewIdRedCardsTeamA);
+        displayScore(redCardsTeamB, viewIdRedCardsTeamB);
+    }
 }
+
