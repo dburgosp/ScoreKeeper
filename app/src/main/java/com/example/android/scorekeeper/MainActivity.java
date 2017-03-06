@@ -14,20 +14,20 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainActivity extends AppCompatActivity {
-    int viewIdGoalsTeamA = R.id.team_a_goals;
-    int viewIdGoalsTeamB = R.id.team_b_goals;
-    int viewIdYellowCardsTeamA = R.id.team_a_yellow_cards;
-    int viewIdYellowCardsTeamB = R.id.team_b_yellow_cards;
-    int viewIdRedCardsTeamA = R.id.team_a_red_cards;
-    int viewIdRedCardsTeamB = R.id.team_b_red_cards;
-
     Button goalTeamBButton;
-    Button resetButton;
     Button goalTeamAButton;
     Button yellowCardTeamAButton;
     Button yellowCardTeamBButton;
     Button redCardTeamAButton;
     Button redCardTeamBButton;
+    Button resetButton;
+
+    TextView goalTeamATextView;
+    TextView goalTeamBTextView;
+    TextView yellowCardTeamATextView;
+    TextView yellowCardTeamBTextView;
+    TextView redCardTeamATextView;
+    TextView redCardTeamBTextView;
 
     int goalsTeamA = 0;
     int goalsTeamB = 0;
@@ -46,20 +46,28 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        if (getSupportActionBar() != null) getSupportActionBar().hide();
+
+        goalTeamATextView = (TextView) findViewById(R.id.team_a_goals);
+        goalTeamBTextView = (TextView) findViewById(R.id.team_b_goals);
+        yellowCardTeamATextView = (TextView) findViewById(R.id.team_a_yellow_cards);
+        yellowCardTeamBTextView = (TextView) findViewById(R.id.team_b_yellow_cards);
+        redCardTeamATextView = (TextView) findViewById(R.id.team_a_red_cards);
+        redCardTeamBTextView = (TextView) findViewById(R.id.team_b_red_cards);
 
         resetScores();
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         goalTeamBButton = (Button) findViewById(R.id.goalTeamBButton);
-        resetButton = (Button) findViewById(R.id.resetButton);
         goalTeamAButton = (Button) findViewById(R.id.goalTeamAButton);
         yellowCardTeamAButton = (Button) findViewById(R.id.yellowCardTeamAButton);
         yellowCardTeamBButton = (Button) findViewById(R.id.yellowCardTeamBButton);
         redCardTeamAButton = (Button) findViewById(R.id.redCardTeamAButton);
         redCardTeamBButton = (Button) findViewById(R.id.redCardTeamBButton);
+        resetButton = (Button) findViewById(R.id.resetButton);
     }
 
     @Override
@@ -79,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 goalsTeamA = goalsTeamA + 1;
-                displayScore(goalsTeamA, viewIdGoalsTeamA);
+                displayScore(goalsTeamA, goalTeamATextView);
             }
 
         });
@@ -88,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 goalsTeamB = goalsTeamB + 1;
-                displayScore(goalsTeamB, viewIdGoalsTeamB);
+                displayScore(goalsTeamB, goalTeamBTextView);
             }
 
         });
@@ -97,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 yellowCardsTeamA = yellowCardsTeamA + 1;
-                displayScore(yellowCardsTeamA, viewIdYellowCardsTeamA);
+                displayScore(yellowCardsTeamA, yellowCardTeamATextView);
             }
 
         });
@@ -106,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 yellowCardsTeamB = yellowCardsTeamB + 1;
-                displayScore(yellowCardsTeamB, viewIdYellowCardsTeamB);
+                displayScore(yellowCardsTeamB, yellowCardTeamBTextView);
             }
 
         });
@@ -115,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redCardsTeamA = redCardsTeamA + 1;
-                displayScore(redCardsTeamA, viewIdRedCardsTeamA);
+                displayScore(redCardsTeamA, redCardTeamATextView);
             }
 
         });
@@ -124,12 +132,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redCardsTeamB = redCardsTeamB + 1;
-                displayScore(redCardsTeamB, viewIdRedCardsTeamB);
+                displayScore(redCardsTeamB, redCardTeamBTextView);
             }
 
         });
 
         return true;
+    }
+
+    public void displayAllScores() {
+        displayScore(goalsTeamA, goalTeamATextView);
+        displayScore(goalsTeamB, goalTeamBTextView);
+        displayScore(yellowCardsTeamA, yellowCardTeamATextView);
+        displayScore(yellowCardsTeamB, yellowCardTeamBTextView);
+        displayScore(redCardsTeamA, redCardTeamATextView);
+        displayScore(redCardsTeamB, redCardTeamBTextView);
     }
 
     public void resetScores() {
@@ -140,17 +157,11 @@ public class MainActivity extends AppCompatActivity {
         redCardsTeamA = 0;
         redCardsTeamB = 0;
 
-        displayScore(goalsTeamA, viewIdGoalsTeamA);
-        displayScore(goalsTeamB, viewIdGoalsTeamB);
-        displayScore(yellowCardsTeamA, viewIdYellowCardsTeamA);
-        displayScore(yellowCardsTeamB, viewIdYellowCardsTeamB);
-        displayScore(redCardsTeamA, viewIdRedCardsTeamA);
-        displayScore(redCardsTeamB, viewIdRedCardsTeamB);
+        displayAllScores();
     }
 
-    public void displayScore(int score, int viewId) {
-        TextView scoreView = (TextView) findViewById(viewId);
-        scoreView.setText(String.valueOf(score));
+    public void displayScore(int score, TextView view) {
+        view.setText(String.valueOf(score));
     }
 
     /**
@@ -210,12 +221,7 @@ public class MainActivity extends AppCompatActivity {
         redCardsTeamA = savedInstanceState.getInt("redCardsTeamA");
         redCardsTeamB = savedInstanceState.getInt("redCardsTeamB");
 
-        displayScore(goalsTeamA, viewIdGoalsTeamA);
-        displayScore(goalsTeamB, viewIdGoalsTeamB);
-        displayScore(yellowCardsTeamA, viewIdYellowCardsTeamA);
-        displayScore(yellowCardsTeamB, viewIdYellowCardsTeamB);
-        displayScore(redCardsTeamA, viewIdRedCardsTeamA);
-        displayScore(redCardsTeamB, viewIdRedCardsTeamB);
+        displayAllScores();
     }
 }
 
