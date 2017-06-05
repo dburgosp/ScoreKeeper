@@ -2,13 +2,12 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context="com.example.android.scorekeeper.MainActivity">
 
     <RelativeLayout
-        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,10 +16,9 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/background_description"
             android:scaleType="centerCrop"
-            android:src="@drawable/background3" />
+            android:src="@drawable/background" />
 
         <View
-            android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"
@@ -31,7 +29,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <LinearLayout style="@style/teamLinearLayout">
@@ -103,7 +100,6 @@
                         android:layout_marginStart="8dp" />
 
                     <TextView
-                        android:id="@+id/textView"
                         style="@style/teamTitleTextView"
                         android:background="@drawable/team_b_title_layers"
                         android:gravity="start"

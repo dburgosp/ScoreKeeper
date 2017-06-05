@@ -54,7 +54,7 @@
         <item name="android:shadowDy">4</item>
         <item name="android:shadowRadius">5</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/team_name</item>
     </style>
 
     <style name="goalsTextView">
