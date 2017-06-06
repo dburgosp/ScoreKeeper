@@ -8,6 +8,7 @@
     tools:context="com.example.android.scorekeeper.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/main_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -19,6 +20,7 @@
             android:src="@drawable/background" />
 
         <View
+            android:id="@+id/transparent_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"
