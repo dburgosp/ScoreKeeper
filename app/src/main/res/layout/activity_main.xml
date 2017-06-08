@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context="com.example.android.scorekeeper.MainActivity">
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            tools:context="com.example.android.scorekeeper.MainActivity">
 
     <RelativeLayout
         android:id="@+id/main_relative_layout"
@@ -21,16 +21,23 @@
 
         <View
             android:id="@+id/transparent_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/content"
+            android:layout_alignBottom="@+id/reset_layers_wrapper"
+            android:layout_alignStart="@+id/content"
+            android:layout_alignEnd="@+id/content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:alpha="0.5"
             android:background="@drawable/background_layers" />
 
         <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:padding="16dp"
             android:orientation="horizontal">
 
             <LinearLayout style="@style/teamLinearLayout">
@@ -145,9 +152,10 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/reset_layers_wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@id/content"
             android:layout_marginBottom="32dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
@@ -162,5 +170,6 @@
                 android:text="@string/reset" />
 
         </RelativeLayout>
+
     </RelativeLayout>
 </ScrollView>
