@@ -15,10 +15,10 @@
         </shape>
     </item>
     <item
-        android:left="@dimen/max_layer_item_size"
-        android:top="@dimen/max_layer_item_size"
         android:bottom="@dimen/max_layer_item_size"
-        android:right="@dimen/max_layer_item_size">
+        android:left="@dimen/max_layer_item_size"
+        android:right="@dimen/max_layer_item_size"
+        android:top="@dimen/max_layer_item_size">
         <shape android:shape="rectangle">
             <solid android:color="@color/colorPrimaryDark" />
             <corners android:radius="@dimen/big_radius_1" />
